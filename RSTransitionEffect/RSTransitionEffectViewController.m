@@ -12,6 +12,8 @@
 
 @interface RSTransitionEffectViewController ()
 
+@property (nonatomic, strong) NSDictionary *targetFrames;
+
 @property (nonatomic, strong) UIColor *backgroundColor;
 
 - (void)__bindItem;

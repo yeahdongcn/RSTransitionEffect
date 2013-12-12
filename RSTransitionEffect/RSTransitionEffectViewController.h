@@ -14,8 +14,6 @@
 
 @property (nonatomic, strong) NSDictionary *sourceFrames;
 
-@property (nonatomic, strong) NSDictionary *targetFrames;
-
 @property (nonatomic, strong) RSBasicItem *item;
 
 @property (nonatomic, weak) IBOutlet UIView *cell;

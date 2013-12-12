@@ -46,7 +46,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="Rkb-st-DaI"/>
                     <connections>
-                        <segue destination="AU6-bF-VYb" kind="push" id="Ajm-Va-6nO"/>
+                        <segue destination="AU6-bF-VYb" kind="push" identifier="open" id="Ajm-Va-6nO"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jy9-k9-NRE" userLabel="First Responder" sceneMemberID="firstResponder"/>
