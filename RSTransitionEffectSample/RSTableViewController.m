@@ -39,9 +39,9 @@
         NSArray *items = [[[NSDictionary alloc] initWithContentsOfFile:path] objectForKey:@"Data"];
         for (NSDictionary *dict in items) {
             RSBasicItem *item = [[RSBasicItem alloc] init];
+            item.image = [UIImage imageNamed:[dict objectForKey:@"Image"]];
             item.text = [dict objectForKey:@"Place"];
             item.detailText = [dict objectForKey:@"Country"];
-            item.image = [UIImage imageNamed:[dict objectForKey:@"Image"]];
             [self.items addObject:item];
         }
     }
@@ -66,9 +66,9 @@
     
     // Configure the cell...
     RSBasicItem *item = [self.items objectAtIndex:[indexPath row]];
+    cell.imageView.image = item.image;
     cell.textLabel.text = item.text;
     cell.detailTextLabel.text = item.detailText;
-    cell.imageView.image = item.image;
     
     return cell;
 }
@@ -77,7 +77,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     RSDetailViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"detail"];
     viewController.sourceFrames = [tableView framesForRowAtIndexPath:indexPath];

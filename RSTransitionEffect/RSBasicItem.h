@@ -10,10 +10,10 @@
 
 @interface RSBasicItem : NSObject
 
+@property (nonatomic, copy) UIImage *image;
+
 @property (nonatomic, copy) NSString *text;
 
 @property (nonatomic, copy) NSString *detailText;
-
-@property (nonatomic, copy) UIImage *image;
 
 @end

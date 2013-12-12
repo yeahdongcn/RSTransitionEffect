@@ -30,10 +30,10 @@
 
 - (void)__bindItem
 {
-    self.textLabel.text = self.item.text;
-    self.detailTextLabel.text = self.item.detailText;
     self.imageView.image = self.item.image;
+    self.textLabel.text = self.item.text;
     [self.textLabel sizeToFit];
+    self.detailTextLabel.text = self.item.detailText;
     [self.detailTextLabel sizeToFit];
 }
 
@@ -76,6 +76,8 @@
     self.detailTextLabel.frame = [[frames objectForKey:@"detailTextLabel"] CGRectValue];
     self.toolbar.frame = toolbarFrame;
 }
+
+#pragma mark - RSTransitionEffectViewController
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -120,7 +122,11 @@
     [UIView animateWithDuration:1.0f animations:^{
         [self __changeFrames:YES];
     } completion:^(BOOL finished) {
-        [self.navigationController popViewControllerAnimated:NO];
+        [UIView animateWithDuration:0.3f animations:^{
+            self.cell.alpha = 0;
+        } completion:^(BOOL finished) {
+            [self.navigationController popViewControllerAnimated:NO];
+        }];
     }];
 }
 
