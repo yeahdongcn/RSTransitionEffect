@@ -16,6 +16,12 @@
 
 @property (nonatomic, strong) RSBasicItem *item;
 
+@property (nonatomic, assign) NSTimeInterval animationDuration;
+
+@property (nonatomic, copy) UIColor *cellBackgroundColor;
+
+#pragma mark - IB
+
 @property (nonatomic, weak) IBOutlet UIView *cell;
 
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;

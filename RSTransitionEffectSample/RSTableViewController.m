@@ -82,6 +82,7 @@
     RSDetailViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"detail"];
     viewController.sourceFrames = [tableView framesForRowAtIndexPath:indexPath];
     viewController.item = [self.items objectAtIndex:[indexPath row]];
+    viewController.animationDuration = 0.9f;
     [self.navigationController pushViewController:viewController animated:NO];
 }
 

@@ -89,6 +89,10 @@
         [window.layer renderInContext:context];
         self.backgroundColor = [UIColor colorWithPatternImage:UIGraphicsGetImageFromCurrentImageContext()];
         UIGraphicsEndImageContext();
+        
+        self.animationDuration = 1.0f;
+        
+        self.cellBackgroundColor = [UIColor lightGrayColor];
     }
     return self;
 }
@@ -100,13 +104,15 @@
     
     self.backgroundView.backgroundColor = self.backgroundColor;
     
+    self.cell.backgroundColor = self.cellBackgroundColor;
+    
     [self __bindItem];
     
     [self __prepareTargetFrames];
     
     [self __changeFrames:YES];
     
-    [UIView animateWithDuration:1.0f animations:^{
+    [UIView animateWithDuration:self.animationDuration animations:^{
         [self __changeFrames:NO];
     }];
 }
@@ -119,7 +125,7 @@
 
 - (IBAction)close:(id)sender
 {
-    [UIView animateWithDuration:1.0f animations:^{
+    [UIView animateWithDuration:self.animationDuration animations:^{
         [self __changeFrames:YES];
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:0.3f animations:^{
