@@ -11,7 +11,7 @@ My implementation introduces source frames and target frames for RSTransitionEff
 
 In the sample it demonstrates the relationship and usage between list -> item -> detail.
 
-In storyboard, create a detail view controller which subclassing RSTransitionEffectViewController, and link predefined IBOutlet to current views then in UITableViewDelegate, instantiate the view controller defined in storyboard and pass sourceFrames and current list item to it:
+In storyboard, create a detail view controller which subclassing RSTransitionEffectViewController, and link predefined IBOutlets to current views then in UITableViewDelegate, instantiate the view controller defined in storyboard and pass sourceFrames and current list item to it:
 
     - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     {
