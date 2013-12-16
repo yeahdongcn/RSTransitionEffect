@@ -18,9 +18,9 @@
 
 - (void)__bindItem;
 
-- (void)__prepareTargetFrames;
+- (void)__buildTargetFrames;
 
-- (void)__changeFrames:(BOOL)is2Source;
+- (void)__switchToSourceFrames:(BOOL)isSource;
 
 @end
 
@@ -37,7 +37,7 @@
     [self.detailTextLabel sizeToFit];
 }
 
-- (void)__prepareTargetFrames
+- (void)__buildTargetFrames
 {
     NSMutableDictionary *frames = [NSMutableDictionary dictionary];
     
@@ -56,11 +56,11 @@
     self.targetFrames = [NSDictionary dictionaryWithDictionary:frames];
 }
 
-- (void)__changeFrames:(BOOL)is2Source
+- (void)__switchToSourceFrames:(BOOL)isSource
 {
     NSDictionary *frames = nil;
     CGRect toolbarFrame = self.toolbar.frame;
-    if (is2Source) {
+    if (isSource) {
         frames = self.sourceFrames;
         self.backgroundView.alpha = 1;
         toolbarFrame.origin.y += toolbarFrame.size.height;
@@ -108,12 +108,12 @@
     
     [self __bindItem];
     
-    [self __prepareTargetFrames];
+    [self __buildTargetFrames];
     
-    [self __changeFrames:YES];
+    [self __switchToSourceFrames:YES];
     
     [UIView animateWithDuration:self.animationDuration animations:^{
-        [self __changeFrames:NO];
+        [self __switchToSourceFrames:NO];
     }];
 }
 
@@ -126,7 +126,7 @@
 - (IBAction)close:(id)sender
 {
     [UIView animateWithDuration:self.animationDuration animations:^{
-        [self __changeFrames:YES];
+        [self __switchToSourceFrames:YES];
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:0.3f animations:^{
             self.cell.alpha = 0;
