@@ -26,3 +26,7 @@ In storyboard, create a detail view controller which subclassing RSTransitionEff
 and that's all, the new detail view controller will display with beautiful transition effect.
 
 ![My image](sample.gif)
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/yeahdongcn/rstransitioneffect/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
